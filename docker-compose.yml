@@ -1,0 +1,39 @@
+version: '3' 
+services:
+#CONFIGURAÇÕES DO MYSQL (banco de dados):
+  mysql:
+    image: mysql:8.0
+    environment: 
+      MYSQL_USER : root 
+      MYSQL_ROOT_PASSWORD: nyx123
+      MYSQL_DATABASE: exercicioslaravel 
+    ports: 
+    #porta externa : porta do container
+      - 3307:3306 
+    hostname: mysql
+
+  web: #apache server + php
+    image: fpfis/httpd-php:8.1-dev
+    working_dir: /var/www/html
+    ports:
+      - 8686:8080 
+    volumes:
+      - ./:/var/www/html
+      - $HOME/.composer/.auth.json:$HOME/.composer/.auth.json
+    environment: # ficar atenta caso precise ajeitar essas variáveis aqui
+      DOCUMENT_ROOT: /var/www/html
+      XDEBUG_CONFIG: "remote_enable=1 remote_host=10.254.254.254 remote_port=9000 idekey=PHPSTORM remote_autostart=1"
+      PHP_IDE_CONFIG: "serverName=Docker"
+ 
+  phpmyadmin: 
+    image: phpmyadmin #não tem problema atualizar sempre para a última versão? ou vou mexer com bd grande?
+    ports: 
+      - 8000:80 
+    depends_on:
+      - mysql
+    environment:
+      - PMA_ARBITRARY=1 
+      - PMA_HOST=mysql 
+      - MYSQL_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=nyx123
+      - PMA_PORT=3306

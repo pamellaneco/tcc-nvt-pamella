@@ -32,8 +32,76 @@
                 <strong>
                     Você produtor...
                 </strong>
-                <p>Consiga contato mais fácil com seus clientes fiéis e conheça novos compradores através da nossa plataforma. Em poucos passos, retiramos o intermediário do seu caminhoe facilitamos o seu processo de venda.</p>
+                <p>Consiga contato mais fácil com seus clientes fiéis e conheça novos compradores através da nossa plataforma. Em poucos passos, retiramos o intermediário do seu caminho e facilitamos o seu processo de venda.</p>
                 <img class="imagensCentro" src="/img/image2.jpg" alt="imagem ilustrativa de uma cesta com vegetais">
+            </div>
+        </div>
+    </div>
+    <div class="faq">
+        <div class="cliente">
+            <h3>Perguntas comuns por clientes</h3>
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
+            </div>
+        </div>
+        <div class="agricultor">
+            <h3>Perguntas comuns por agricultores</h3>
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
+            </div>
+
+            <div class="pergunta">
+                <h4>Pergunta</h4>
+                <p class="respostas">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Resposta
+                </p>
             </div>
         </div>
     </div>

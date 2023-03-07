@@ -15,7 +15,7 @@
         </div>
         <div id="itens">
             <a class="menuItem" href="#">Contatos</a>
-            <a class="menuItem" href="#">Login / Cadastro</a>        
+            <a class="menuItem" href="/signup">Login / Cadastro</a>        
         </div>
     </div>
     <div class="apresentacao">

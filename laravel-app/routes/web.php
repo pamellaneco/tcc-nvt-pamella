@@ -24,3 +24,6 @@ Route::get('/signup', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); -> foi criado com o auth do bootstrap e eu apaguei o arquivo home pq já tinha uma homepage

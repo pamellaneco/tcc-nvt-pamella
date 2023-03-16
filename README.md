@@ -16,6 +16,8 @@
 
 4. Dentro da pasta nyx-crm/, rode `make install` (se não tiver instalado na sua máquina, rode antes `sudo apt install make`)
 
+5. Para acessar os estilos do projeto, rode (fora do container) o comando ` npm run dev`
+
 ## Acessar a página web:
 localhost:9000/
 

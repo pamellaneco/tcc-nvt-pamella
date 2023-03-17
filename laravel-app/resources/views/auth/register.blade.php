@@ -85,7 +85,7 @@
                             </div>
     
                             <div class="col-md-12">
-                                <div class="col-md-12 offset-md-6">
+                                <div class="col-md-12 offset-md-5 mb-2">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Enviar') }}
                                     </button>

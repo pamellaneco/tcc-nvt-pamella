@@ -22,7 +22,7 @@
 
 
 </head>
-<body  id="intro" class="p-3 mb-5 bg-success">
+<body  id="intro" class="p-3 mb-10 bg-success">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-success">
             <div class="container">
@@ -42,12 +42,12 @@
                         <!-- não consegui fazer o if para mostrar esse item para ambos (login e register)-->
                         @if((Route::current()->getName()) == 'login')
                             <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
+                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">>Página inicial</a>
                             </li>
                         @endif
                         @if((Route::current()->getName()) == 'register')
                             <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
+                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">>Página inicial</a>
                             </li>
                         @endif
                         @guest

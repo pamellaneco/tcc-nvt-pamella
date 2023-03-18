@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card mt-5">
+            <div class="card mt-5 bg-success text-white">
                 <div class="justify-content-center align-items-center text-align-center">
                     <div class="card-header">{{ __('Preencha esse formulário para criar sua conta:') }}</div>
     
@@ -86,7 +86,7 @@
     
                             <div class="col-md-12">
                                 <div class="col-md-12 offset-md-5 mb-2">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-dark">
                                         {{ __('Enviar') }}
                                     </button>
                                 </div>

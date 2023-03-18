@@ -12,8 +12,10 @@ services:
   mysql_db:
     image: mysql:latest #escolher uma versão fixa caso for usar o banco
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel_tcc_nvt
+      MYSQL_DATABASE: mysql_tcc
+      MYSQL_ROOT_PASSWORD: R00t+
+      MYSQL_USER: novosTitans
+      MYSQL_PASSWORD: nvt123
     ports:
     - 3306:3306
   
@@ -24,6 +26,6 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql_db
-      - MYSQL_USERNAME=root
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USERNAME=novosTitans
+      - MYSQL_ROOT_PASSWORD=nvt123
       - PMA_PORT=3306

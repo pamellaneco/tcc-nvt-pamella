@@ -28,5 +28,6 @@ Route::get('/welcome', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::get('/dashboardProducer', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboardProducer')->middleware('verified'); 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile')->middleware('verified'); 
 

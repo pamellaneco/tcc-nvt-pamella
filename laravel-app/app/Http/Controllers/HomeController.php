@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $tipoUsuario = auth()->user()->tipoUsuario;
+
+        if ($tipoUsuario == 'agricultor') {
+            return view('dashboardProducer');
+        }
+        if ($tipoUsuario == 'consumidor') {
+            return view('dashboardConsumer');
+        }
+
     }
 }

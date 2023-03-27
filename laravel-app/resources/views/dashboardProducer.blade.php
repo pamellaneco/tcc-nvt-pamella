@@ -15,6 +15,8 @@
 
                 <div class="card-body">
                     <h1>Agricultor</h1>
+                    <p>clicar na aba de perfil e ver seu perfil com suas informações inseridas durante o cadastro</p>
+                
                 </div>
             </div>
         </div>

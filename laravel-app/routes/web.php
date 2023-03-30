@@ -18,16 +18,13 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/signup', function () {
-    return view('signup');
-});
-
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Auth::routes(['verify' => true]);
 
-Route::get('/dashboardProducer', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboardProducer')->middleware('verified'); 
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile')->middleware('verified'); 
+#ajustar isso para uso mais adequado do HomeController.php , se é bom criar outros controllers ou posso fazer assim de boa:
+Route::get('/postsPage', [App\Http\Controllers\HomeController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile')->middleware('verified'); 

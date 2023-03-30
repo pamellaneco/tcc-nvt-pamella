@@ -40,6 +40,12 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <!-- não consegui fazer o if para mostrar esse item para ambos (login e register)-->
+                        @if((Route::current()->getName()) == 'profile')
+                            <li>
+                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página de publicações</a>
+                            </li>
+                        @endif
+
                         @if((Route::current()->getName()) == 'login')
                             <li>
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
@@ -56,16 +62,25 @@
                             </li>
                         @endif
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                                </li>
+                            @if((Route::current()->getName()) == '')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            </li>
                             @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
-                                </li>
+                            @if((Route::current()->getName()) == 'login')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
+                            </li>
+                            @endif
+                            
+                            @if((Route::current()->getName()) == 'register')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -73,7 +88,13 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @if((Route::current()->getName()) == 'postsPage')
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Meu perfil') }}
+                                        </a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

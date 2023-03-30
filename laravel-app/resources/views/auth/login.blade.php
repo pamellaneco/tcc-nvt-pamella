@@ -60,7 +60,7 @@
                         <div class="row mb-0">
                             <div class="col-md-12 offset-md-5 mb-2">
                                 <button type="submit" class="btn btn-dark">
-                                    {{ __('Enviar') }}
+                                    {{ __('Entrar') }}
                                 </button>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link text-white" href="{{ route('password.request') }}">

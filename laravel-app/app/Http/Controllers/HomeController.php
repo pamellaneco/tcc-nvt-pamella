@@ -21,7 +21,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function postsPage()
+    {
+        $tipoUsuario = auth()->user()->tipoUsuario;
+
+        if ($tipoUsuario == 'agricultor') {
+            return view('producerPostsPage');
+        }
+        if ($tipoUsuario == 'consumidor') {
+            return view('consumerPostsPage');
+        }
+    }
+
+    public function profile()
     {
         $tipoUsuario = auth()->user()->tipoUsuario;
 

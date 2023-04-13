@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('homepage');
-});
+#Route::get('/', function () {
+#    return view('homepage');
+#});
+
+Route::get('/', [PagesController::class, 'index']);
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -24,7 +28,7 @@ Route::get('/welcome', function () {
 
 Auth::routes(['verify' => true]);
 
-#ajustar isso para uso mais adequado do HomeController.php , se é bom criar outros controllers ou posso fazer assim de boa:
-Route::get('/postsPage', [App\Http\Controllers\HomeController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
+Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile')->middleware('verified'); 
+Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 
+

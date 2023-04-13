@@ -39,10 +39,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <!-- não consegui fazer o if para mostrar esse item para ambos (login e register)-->
+
                         @if((Route::current()->getName()) == 'profile')
                             <li>
-                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página de publicações</a>
+                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
                             </li>
                         @endif
 
@@ -57,6 +57,11 @@
                             </li>
                         @endif
                         @if((Route::current()->getName()) == 'profile')
+                            <li>
+                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
+                            </li>
+                        @endif
+                        @if((Route::current()->getName()) == 'postsPage')
                             <li>
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
                             </li>

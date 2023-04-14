@@ -39,7 +39,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-
+                        @if((Route::current()->getName()) == '')
+                            <li>
+                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
+                            </li> 
+                        @endif
                         @if((Route::current()->getName()) == 'profile')
                             <li>
                                 <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
@@ -87,7 +91,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             @endif
-                        @else
+                            @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -95,6 +99,12 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if((Route::current()->getName()) == 'postsPage')
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Meu perfil') }}
+                                        </a>
+                                    @endif
+
+                                    @if((Route::current()->getName()) == '')
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Meu perfil') }}
                                         </a>

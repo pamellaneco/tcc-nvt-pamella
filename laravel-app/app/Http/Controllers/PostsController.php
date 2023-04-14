@@ -20,7 +20,7 @@ class PostsController extends Controller
             até agora, mas é preciso achar um modo de liberar os 
             posts para o consumidor ver também  
         */  
-        return view ('producerPostsPage')->with('sale_posts', Post::orderBy('updated_at', 'DESC')->get());
+        return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
     /*
     como era antes:

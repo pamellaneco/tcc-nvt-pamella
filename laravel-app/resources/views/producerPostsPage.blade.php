@@ -27,7 +27,7 @@
                         <div class="card-content" id="teste2">
                             <div class="col-md-6">
                                 <h1>{{$post->title}}</h1>
-                                <h1>Criado por <strong> {{$post->user->name}} </strong>, em {{ date('jS M Y', strtotime($post->$updated_at)) }}</h1>
+                                <h5>Criado por <strong> {{$post->user->name}}, em {{ date('jS M Y', strtotime($post->updated_at)) }} </strong>.</h5>
                                 <h3>{{$post->description}}</h3>
                             </div>
                             <!-- criei esse aqui caso seja necessário, mas não acho que vá usar essa funcionalidade

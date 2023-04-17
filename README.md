@@ -25,6 +25,8 @@ localhost:9000/
 localhost:9001/
 
 ## Alguns comandos úteis para o desenvolvedor:
+- em caso de erro no laravel.log:
+`docker exec -it laravel_tcc_nvt bash -c "chown -R www-data:www-data ./"`
 - para criar uma imagem: 
 `docker-compose build --no-cache --force-rm`
 

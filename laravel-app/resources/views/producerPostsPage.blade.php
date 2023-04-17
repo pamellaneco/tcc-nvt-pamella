@@ -19,8 +19,15 @@
             </style>
             </div>
 
+            
+            @if (Auth::check (auth()->user()->tipoUsuario == 'agricultor'))
+                <a href="/postsPage/create" type="submit" class="btn btn-warning m-3">
+                    {{ __('Criar publicação') }}
+                </a>
+            @endif
+
             @foreach ($posts as $post)
-                <div class="card bg-white text-success mt-5 col-md-8">
+                <div class="card bg-white text-success mt-2 col-md-8">
                     <div class="card-header">{{ __('slug do post ou tag') }}</div>
 
                     <div class="card-body col-md-12">

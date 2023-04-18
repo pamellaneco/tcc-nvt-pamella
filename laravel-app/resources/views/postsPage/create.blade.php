@@ -35,7 +35,7 @@
                                 <div class="card-header">{{ __('Entre na sua conta:') }}</div>
 
                                 <div class="card-body">
-                                    <form class="col-md-12" id="form-posts" action="/postsPage" method="POST" enctype="multipart/form-data">
+                                    <form class="col-md-12" id="form-posts" action="/postsPage/create" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="m-1">
                                             <label class="mt-2 col-md-8 col-form-label text-md-end" for="title">{{ __('Título:') }}</label>

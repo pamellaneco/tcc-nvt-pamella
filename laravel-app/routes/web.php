@@ -30,6 +30,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/postsPage/create', [App\Http\Controllers\PostsController::class, 'create'])->name('create')->middleware('verified'); 
 
+Route::post('/postsPage/create', [App\Http\Controllers\PostsController::class, 'store'])->name('store')->middleware('verified'); 
+
 Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 

@@ -21,6 +21,12 @@ class PostsController extends Controller
             posts para o consumidor ver também  
         */  
         return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+       /*
+        $flight = Post::find(1);
+       $atributos = $flight->getAttributes();
+       
+       return view ('producerPostsPage')->with('posts', $atributos );
+       */
     }
     /*
     como era antes:
@@ -37,7 +43,7 @@ class PostsController extends Controller
         }
     }
     */
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -45,6 +51,12 @@ class PostsController extends Controller
      */
     public function create()
     {
+        /*
+        $flight = Post::find(1);
+        $atributos = $flight->getAttributes();
+        */
+        
+     //   dd($atributos['image_path']);   
         return view('postsPage.create');
     }
 
@@ -65,7 +77,15 @@ class PostsController extends Controller
         $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
 
         $request->image->move(public_path('images'), $newImageName);
-        
+
+        Post::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'image_path' => $newImageName,
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/postsPage')->with('message', 'Sua oferta foi publicada;');
     }
 
     /**

@@ -19,6 +19,13 @@
             </style>
             </div>
 
+            @if (session()->has('message'))
+                <div class="m-1">
+                    <p class="m-1 bg-white text-success">
+                        {{ session ()->get('message')}}
+                    </p>
+                </div>
+            @endif
             
             @if (Auth::check (auth()->user()->tipoUsuario == 'agricultor'))
                 <a href="/postsPage/create" type="submit" class="btn btn-warning m-3">
@@ -41,7 +48,7 @@
                             <a href="/postsPage/{{ $post->slug}}"> Continuar leitura</a>
                             -->
                             <div class="col-md-4">
-                                <img src="img/image2.jpg" class="col-md-12" alt="">
+                            <img src="" alt="" srcset="">
                             </div>
                         </div>
                     </div>

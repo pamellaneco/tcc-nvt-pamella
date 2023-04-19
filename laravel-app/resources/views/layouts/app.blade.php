@@ -55,6 +55,11 @@
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
                             </li>
                         @endif
+                        @if((Route::current()->getName()) == 'create')
+                            <li>
+                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
+                            </li>
+                        @endif
                         @if((Route::current()->getName()) == 'register')
                             <li>
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
@@ -99,6 +104,12 @@
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @if((Route::current()->getName()) == 'postsPage')
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Meu perfil') }}
+                                        </a>
+                                    @endif
+
+                                    @if((Route::current()->getName()) == 'create')
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Meu perfil') }}
                                         </a>

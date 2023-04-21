@@ -127,20 +127,21 @@ class PostsController extends Controller
             ]);
     
             $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
-    
+            
             $request->image->move(public_path('images'), $newImageName);
     
-            Post::edit([
+            Post::where('id', $id)->update([
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
                 'image_path' => $newImageName,
                 'user_id' => auth()->user()->id
             ]);
+        
             /*
             esse return redirecionando é porque eu quero que exiba a mensagem de publicação atualizada 
             e tbm envie as variáveis atualizadas no post
             */
-            return redirect('/postsPage')->with('message', 'Sua publicação foi atualizada;' && 'post', $atributos_do_banco);
+            return redirect('/postsPage')->with('message', 'Sua publicação foi atualizada;');
         
     }
 

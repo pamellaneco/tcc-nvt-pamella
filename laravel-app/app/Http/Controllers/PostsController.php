@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
+use function PHPUnit\Framework\isNull;
+
 class PostsController extends Controller
 {
     /**
@@ -101,7 +103,7 @@ class PostsController extends Controller
     {
         $variavel_com_dados_do_banco = Post::find($id);
         $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
-        return view ('postsPage.show')->with('post', $atributos_do_banco );
+        return view ('postsPage.show')->with('post', $atributos_do_banco);
 
     }
 
@@ -115,33 +117,29 @@ class PostsController extends Controller
     public function edit($id, Request $request)
     {
         //validar se existe na base de dados o id passado (como em show):
-            $variavel_com_dados_do_banco = Post::find($id);
-            $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
-           // return view ('postsPage.update')->with('post', $atributos_do_banco );
+        $variavel_com_dados_do_banco = Post::find($id);
+        $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
 
         //criar update pegando as informações do input (como em store):
-            $request ->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'image' => 'required|mimes:jpg,png,jpeg|max:5048'
-            ]);
-    
-            $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
             
-            $request->image->move(public_path('images'), $newImageName);
-    
-            Post::where('id', $id)->update([
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'image_path' => $newImageName,
-                'user_id' => auth()->user()->id
+        if (!isNull($request->input('image'))) {
+            $request ->validate([
+                'image' => 'mimes:jpg,png,jpeg|max:5048'
             ]);
-        
-            /*
-            esse return redirecionando é porque eu quero que exiba a mensagem de publicação atualizada 
-            e tbm envie as variáveis atualizadas no post
-            */
-            return redirect('/postsPage')->with('message', 'Sua publicação foi atualizada;');
+            $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $newImageName);
+        } else {
+            $newImageName = $atributos_do_banco['image_path'];
+        }
+
+        Post::where('id', $id)->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'image_path' => $newImageName,
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/postsPage')->with('message', 'Sua publicação foi atualizada;');
         
     }
 

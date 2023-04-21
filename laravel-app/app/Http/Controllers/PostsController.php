@@ -57,7 +57,9 @@ class PostsController extends Controller
         */
         
      //   dd($atributos['image_path']);   
+        
         return view('postsPage.create');
+
     }
 
     /**
@@ -94,9 +96,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //aqui eu mostro o form para edição e o action do form vai pra rota update (que chama o método "edit" abaixo):
     public function show($id)
     {
-        //
+        $variavel_com_dados_do_banco = Post::find($id);
+        $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
+        return view ('postsPage.show')->with('post', $atributos_do_banco );
+
     }
 
     /**
@@ -105,9 +111,37 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    //aqui eu realizo a edição e redireciono para o index dos posts listados
+    public function edit($id, Request $request)
     {
-        //
+        //validar se existe na base de dados o id passado (como em show):
+            $variavel_com_dados_do_banco = Post::find($id);
+            $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
+           // return view ('postsPage.update')->with('post', $atributos_do_banco );
+
+        //criar update pegando as informações do input (como em store):
+            $request ->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+            ]);
+    
+            $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
+    
+            $request->image->move(public_path('images'), $newImageName);
+    
+            Post::edit([
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'image_path' => $newImageName,
+                'user_id' => auth()->user()->id
+            ]);
+            /*
+            esse return redirecionando é porque eu quero que exiba a mensagem de publicação atualizada 
+            e tbm envie as variáveis atualizadas no post
+            */
+            return redirect('/postsPage')->with('message', 'Sua publicação foi atualizada;' && 'post', $atributos_do_banco);
+        
     }
 
     /**

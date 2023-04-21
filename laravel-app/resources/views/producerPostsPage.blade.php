@@ -48,8 +48,11 @@
                             <a href="/postsPage/{{ $post->slug}}"> Continuar leitura</a>
                             -->
                             <div class="col-md-4">
-                            <img src="" alt="" srcset="">
-                            </div>
+                            <img src="/images/{{$post->image_path}}" alt="" srcset=""> 
+                        </div>
+                        <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
+                            {{ __('Editar publicação') }}
+                        </a>
                         </div>
                     </div>
                 </div>

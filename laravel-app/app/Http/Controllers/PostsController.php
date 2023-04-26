@@ -21,10 +21,13 @@ class PostsController extends Controller
     public function postsPage()
     {
         /*
-            tô com dificuldade de fazer essa relação aqui:
-            coloquei producer porque é nele que ocorre a ação 
-            até agora, mas é preciso achar um modo de liberar os 
-            posts para o consumidor ver também  
+            $tipoUsuario = auth()->user()->tipoUsuario;
+            if ($tipoUsuario == 'agricultor') {
+                return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+            }
+            if ($tipoUsuario == 'consumidor') {
+                return view ('consumerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+            }
         */  
         return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
        /*

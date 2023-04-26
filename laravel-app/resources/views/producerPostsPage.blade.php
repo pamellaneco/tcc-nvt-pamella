@@ -27,7 +27,7 @@
                 </div>
             @endif
             
-            @if (Auth::check (auth()->user()->tipoUsuario == 'agricultor'))
+            @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
                 <a href="/postsPage/create" type="submit" class="btn btn-warning m-3">
                     {{ __('Criar publicação') }}
                 </a>
@@ -50,18 +50,20 @@
                             <div class="col-md-4">
                             <img src="/images/{{$post->image_path}}" alt="" srcset=""> 
                         </div>
-                        <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
-                            {{ __('Editar publicação') }}
-                        </a>
-                        <div>
-                            <form action="/postsPage/delete/{{$post->id}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="text-white bg-danger p-1 m-1" type="submit">
-                                    Deletar
-                                </button>
-                            </form>
-                        </div>
+                        @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
+                            <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
+                                {{ __('Editar publicação') }}
+                            </a>
+                            <div>
+                                <form action="/postsPage/delete/{{$post->id}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="text-white bg-danger p-1 m-1" type="submit">
+                                        Deletar
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach

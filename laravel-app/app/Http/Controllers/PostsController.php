@@ -9,6 +9,10 @@ use function PHPUnit\Framework\isNull;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['postsPage', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *

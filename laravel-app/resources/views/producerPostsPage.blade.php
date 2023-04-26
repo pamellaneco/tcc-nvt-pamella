@@ -53,6 +53,14 @@
                         <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
                             {{ __('Editar publicação') }}
                         </a>
+                        <div>
+                            <form action="/postsPage/delete/{{$post->id}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="text-white bg-danger p-1 m-1" type="submit">
+                                    Deletar
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

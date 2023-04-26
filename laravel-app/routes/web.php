@@ -36,6 +36,8 @@ Route::get('/postsPage/show/{id}', [App\Http\Controllers\PostsController::class,
 
 Route::post('/postsPage/update/{id}', [App\Http\Controllers\PostsController::class, 'edit'])->name('edit')->middleware('verified'); 
 
+Route::delete('/postsPage/delete/{id}', [App\Http\Controllers\PostsController::class, 'destroy'])->name('destroy')->middleware('verified'); 
+
 Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 

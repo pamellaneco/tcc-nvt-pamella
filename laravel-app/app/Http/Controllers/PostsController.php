@@ -161,8 +161,14 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+    $post = Post::where('id', $id);
+    $post -> delete();
+    return redirect()->route('postsPage')->with('message','Deletado');
+
     }
+
+
 }

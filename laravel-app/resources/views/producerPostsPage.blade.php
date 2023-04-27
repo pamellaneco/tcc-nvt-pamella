@@ -22,6 +22,14 @@
                     text-align: center;
                     border-radius: 6%;
                 }
+                .containerMaior {
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                }
             </style>
             </div>
 
@@ -39,10 +47,11 @@
                 </a>
             @endif
 
+            <div class="containerMaior">
             @foreach ($posts as $post)
-                <div>
+                <div class="containerMaior">
                     
-                    <div class="card bg-white text-success mt-2 col-md-8">
+                    <div class="card bg-white text-success mt-2 col-md-12">
                         <div class="card-header">{{ __('slug do post ou tag') }}</div>
     
                         <div class="card-body col-md-12">
@@ -75,6 +84,7 @@
                     </div>
                 </div>
             @endforeach
+            </div>
         </div>
     </div>
 </div>

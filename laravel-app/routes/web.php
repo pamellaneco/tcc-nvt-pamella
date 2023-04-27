@@ -15,11 +15,6 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-
-#Route::get('/', function () {
-#    return view('homepage');
-#});
-
 Route::get('/', [PagesController::class, 'index']);
 
 Route::get('/welcome', function () {

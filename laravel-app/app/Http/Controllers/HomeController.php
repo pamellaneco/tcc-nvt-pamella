@@ -21,7 +21,5 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
-    //passei o que tinha aqui para PagesController
     
 }

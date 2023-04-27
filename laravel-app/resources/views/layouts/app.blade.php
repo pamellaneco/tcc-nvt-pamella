@@ -15,9 +15,6 @@
     <link rel="shortcut icon" href="/img/icon2.png" type="image/x-icon">
 
     <!-- Scripts -->
-    <!--
-        
-        -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 

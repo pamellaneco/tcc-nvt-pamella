@@ -20,38 +20,8 @@ class PostsController extends Controller
      */
     public function postsPage()
     {
-        /*
-            $tipoUsuario = auth()->user()->tipoUsuario;
-            if ($tipoUsuario == 'agricultor') {
-                return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-            }
-            if ($tipoUsuario == 'consumidor') {
-                return view ('consumerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-            }
-        */  
         return view ('producerPostsPage')->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-       /*
-        $flight = Post::find(1);
-       $atributos = $flight->getAttributes();
-       
-       return view ('producerPostsPage')->with('posts', $atributos );
-       */
     }
-    /*
-    como era antes:
-
-    public function postsPage()
-    {s
-        $tipoUsuario = auth()->user()->tipoUsuario;
-
-        if ($tipoUsuario == 'agricultor') {
-            return view('producerPostsPage');
-        }
-        if ($tipoUsuario == 'consumidor') {
-            return view('consumerPostsPage');
-        }
-    }
-    */
     
     /**
      * Show the form for creating a new resource.
@@ -59,14 +29,7 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        /*
-        $flight = Post::find(1);
-        $atributos = $flight->getAttributes();
-        */
-        
-     //   dd($atributos['image_path']);   
-        
+    {   
         return view('postsPage.create');
 
     }
@@ -105,7 +68,6 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //aqui eu mostro o form para edição e o action do form vai pra rota update (que chama o método "edit" abaixo):
     public function show($id)
     {
         $variavel_com_dados_do_banco = Post::find($id);
@@ -120,14 +82,12 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //aqui eu realizo a edição e redireciono para o index dos posts listados
     public function edit($id, Request $request)
     {
         //validar se existe na base de dados o id passado (como em show):
         $variavel_com_dados_do_banco = Post::find($id);
         $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
 
-        //criar update pegando as informações do input (como em store):
             
         if (!isNull($request->input('image'))) {
             $request ->validate([

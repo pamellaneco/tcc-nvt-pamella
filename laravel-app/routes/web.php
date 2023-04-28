@@ -37,3 +37,5 @@ Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPag
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 
 
+Route::get('/showProducerProfile', [App\Http\Controllers\PagesController::class, 'showProducerProfile'])->name('showProducerProfile')->middleware('verified'); 
+

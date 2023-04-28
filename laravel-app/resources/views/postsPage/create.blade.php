@@ -47,7 +47,16 @@
                                         </div>
                                         <div class="m-1">
                                             <label class="mt-2" for="image">{{ __('Escolha uma imagem para anexar:') }}</label> <br>
-                                            <input class="mt-2" type="file" name="image"> <br>
+                                            <input onclick="checkSize();" class="mt-2" type="file" name="image"> <br>
+                                            <div id="upload_error"></div>
+                                            <script>
+                                                function checkSize() {
+                                                    let size = $('form-posts')['0'].firstChild.files['0'].size;
+                                                    if (size >= 5048) {     
+                                                        $('#upload_error').html("* Tamanho do arquivo não permitido.");
+                                                    }
+                                                }                                             
+                                            </script>
                                         </div>
                                         <div class="m-1">
                                             <button type="submit" class="mt-2 btn btn-primary">Publicar</button>

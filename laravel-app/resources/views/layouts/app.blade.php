@@ -36,45 +36,17 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '')
                         <li>
-                            <a class="nav-link" href="{{ url('/showProducerProfile') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Perfil do produtor</a>
+                            <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
                         </li>
-                        @if((Route::current()->getName()) == '')
-                            <li>
-                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
-                            </li> 
                         @endif
-                        @if((Route::current()->getName()) == 'profile')
-                            <li>
-                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
-                            </li>
-                        @endif
-
-                        @if((Route::current()->getName()) == 'login')
+                        @if((Route::current()->getName()) == 'login' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == 'register' || (Route::current()->getName()) == 'profile' || (Route::current()->getName()) == 'postsPage' || (Route::current()->getName()) == 'showProducerProfile')
                             <li>
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
                             </li>
                         @endif
-                        @if((Route::current()->getName()) == 'create')
-                            <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
-                            </li>
-                        @endif
-                        @if((Route::current()->getName()) == 'register')
-                            <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
-                            </li>
-                        @endif
-                        @if((Route::current()->getName()) == 'profile')
-                            <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
-                            </li>
-                        @endif
-                        @if((Route::current()->getName()) == 'postsPage')
-                            <li>
-                                <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
-                            </li>
-                        @endif
+                       
                         @guest
                             @if((Route::current()->getName()) == '')
                             <li class="nav-item">
@@ -103,19 +75,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @if((Route::current()->getName()) == 'postsPage')
-                                        <a class="dropdown-item" href="{{ route('profile') }}">
-                                        {{ __('Meu perfil') }}
-                                        </a>
-                                    @endif
-
-                                    @if((Route::current()->getName()) == 'create')
-                                        <a class="dropdown-item" href="{{ route('profile') }}">
-                                        {{ __('Meu perfil') }}
-                                        </a>
-                                    @endif
-
-                                    @if((Route::current()->getName()) == '')
+                                    @if(((Route::current()->getName()) == 'postsPage') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '')
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Meu perfil') }}
                                         </a>

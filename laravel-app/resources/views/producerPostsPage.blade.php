@@ -58,7 +58,7 @@
                             <div class="card-content" id="card-content">
                                 <div class="col-md-6">
                                     <h1>{{$post->title}}</h1>
-                                    <h5>Criado por <strong> {{$post->user->name}}, em {{ date('jS M Y', strtotime($post->updated_at)) }} </strong>.</h5>
+                                    <h5>Criado por <a href="/postsPage/showProducerProfile"><strong> {{$post->user->name}}</strong></a><strong>, em {{ date('jS M Y', strtotime($post->updated_at)) }} </strong>.</h5>
                                     <h3>{{$post->description}}</h3>
                                     <div class="col-md-4 w-50 p-3">
                                         <img src="/images/{{$post->image_path}}" alt="imagem da oferta"> 

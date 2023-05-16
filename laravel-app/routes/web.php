@@ -35,6 +35,8 @@ Route::delete('/postsPage/delete/{id}', [App\Http\Controllers\PostsController::c
 
 Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
+Route::get('/postsPage/listProducersProfiles/{tipoUsuario}', [App\Http\Controllers\PagesController::class, 'listProducersProfiles'])->name('listProducersProfiles')->middleware('verified'); 
+
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 
 
 Route::get('/postsPage/showProducerProfile', [App\Http\Controllers\PagesController::class, 'showProducerProfile'])->name('showProducerProfile')->middleware('verified'); 

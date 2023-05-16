@@ -37,9 +37,18 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '')
-                        <li>
-                            <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
-                        </li>
+                            <li>
+                                <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
+                            </li>
+                        @auth
+                        <!--  
+                            {{ Auth::user()->id }}
+                        -->
+                            <li>
+                                <a  href="{{ url('/postsPage/listProducersProfiles/' . Auth::user()->tipoUsuario) }}"  class="nav-link font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Produtores</a>
+                            </li>
+                        @endauth
+
                         @endif
                         @if((Route::current()->getName()) == 'login' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == 'register' || (Route::current()->getName()) == 'profile' || (Route::current()->getName()) == 'postsPage' || (Route::current()->getName()) == 'showProducerProfile')
                             <li>

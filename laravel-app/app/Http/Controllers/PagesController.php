@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
+
 
 class PagesController extends Controller
 {
@@ -27,6 +30,15 @@ class PagesController extends Controller
     public function showProducerProfile()
     {
         return view('showProducerProfile');
+    }
+
+    public function listProducersProfiles($tipoUsuario)
+    {
+
+        $usuarios = User::where('tipoUsuario', $tipoUsuario);
+    
+        return view ('listProducersProfiles')->with('usuarios', $usuarios->get());
+
     }
 
 }

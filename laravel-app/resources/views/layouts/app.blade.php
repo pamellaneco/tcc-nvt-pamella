@@ -36,16 +36,21 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '' || (Route::current()->getName()) == 'listProducersProfiles' )
+                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '' || (Route::current()->getName()) == 'listProducersProfiles' || (Route::current()->getName()) == 'postsPage' )
                             <li>
                                 <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
                             </li>
+                        @endif
+                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '' || (Route::current()->getName()) == 'postsPage' )
                         @auth
                         <!--  
                             {{ Auth::user()->id }}
-                        -->
                             <li>
                                 <a  href="{{ url('/postsPage/listProducersProfiles/' . Auth::user()->tipoUsuario) }}"  class="nav-link font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Produtores</a>
+                            </li>
+                        -->
+                            <li>
+                                <a  href="{{ url('/postsPage/listProducersProfiles/agricultor')}}"  class="nav-link font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Produtores</a>
                             </li>
                         @endauth
 

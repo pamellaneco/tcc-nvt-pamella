@@ -36,7 +36,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '')
+                        @if(((Route::current()->getName()) == 'profile') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '' || (Route::current()->getName()) == 'listProducersProfiles' )
                             <li>
                                 <a class="nav-link" href="{{ url('/postsPage') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ofertas</a>
                             </li>
@@ -50,7 +50,7 @@
                         @endauth
 
                         @endif
-                        @if((Route::current()->getName()) == 'login' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == 'register' || (Route::current()->getName()) == 'profile' || (Route::current()->getName()) == 'postsPage' || (Route::current()->getName()) == 'showProducerProfile')
+                        @if((Route::current()->getName()) == 'login' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == 'register' || (Route::current()->getName()) == 'profile' || (Route::current()->getName()) == 'postsPage' || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'listProducersProfiles')
                             <li>
                                 <a class="nav-link" href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Página inicial</a>
                             </li>
@@ -84,7 +84,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @if(((Route::current()->getName()) == 'postsPage') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '')
+                                    @if(((Route::current()->getName()) == 'postsPage') || (Route::current()->getName()) == 'showProducerProfile' || (Route::current()->getName()) == 'create' || (Route::current()->getName()) == '' || (Route::current()->getName()) == 'listProducersProfiles')
                                         <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Meu perfil') }}
                                         </a>

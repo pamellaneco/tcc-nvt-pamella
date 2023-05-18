@@ -1,0 +1,31 @@
+services:
+
+  laravel_tcc_nvt:
+    container_name: laravel_app
+    build: .
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 8000:80
+      - 3000:5173
+  
+  mysql_db:
+    image: mysql:latest #escolher uma versão fixa caso for usar o banco
+    environment:
+      MYSQL_DATABASE: mysql_tcc
+      MYSQL_ROOT_PASSWORD: R00t+
+      MYSQL_USER: novosTitans
+      MYSQL_PASSWORD: nvt123
+    ports:
+    - 3306:3306
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8001:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql_db
+      - MYSQL_USERNAME=novosTitans
+      - MYSQL_ROOT_PASSWORD=nvt123
+      - PMA_PORT=3306

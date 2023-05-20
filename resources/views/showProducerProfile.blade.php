@@ -6,7 +6,12 @@
         background-image: url('/img/image5.jpg');
         background-size: cover;
     }
-
+    #message {
+        width:fit-content;
+        padding: 0.5em;
+        text-align: center;
+        border-radius: 6%;
+    }
 </style>
 <div class="row col-md-12 align-content-center justify-content-center">
     <div class="container col-md-4 ">
@@ -20,7 +25,23 @@
                         {{ auth()->user()->name }}
                         <h4 class="mt-3">Email: </h4> 
                         {{ auth()->user()->email }}
+                        <h4 class="mt-3">Localidade: </h4> 
+                        {{ auth()->user()->place }}
+                        <h4 class="mt-3">Telefone: </h4> 
+                        {{ auth()->user()->phone }}
                     </div>
+                    <div>
+                        <a href="/profile/updateUserProfile/{{$usuarios->id}}" type="submit" class="btn btn-warning m-3">
+                            {{ __('Editar/adicionar informações ao perfil') }}
+                        </a>
+                    </div>
+                    @if (session()->has('message'))
+                        <div class="m-1">
+                            <p id="message" class="m-2 bg-white text-success">
+                                {{ session ()->get('message')}}
+                            </p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

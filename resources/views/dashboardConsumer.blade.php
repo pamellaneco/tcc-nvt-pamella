@@ -21,6 +21,11 @@
                         <h4 class="mt-3">Email: </h4> 
                         {{ auth()->user()->email }}
                     </div>
+                    <div>
+                        <a href="/profile/update/{{ auth()->user()->id }}" type="submit" class="btn btn-warning m-3">
+                            {{ __('Editar/adicionar informações ao perfil') }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

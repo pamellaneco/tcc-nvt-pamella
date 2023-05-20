@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-       
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('phone');
-            $table->string('place', 255);        
+            $table->integer('phone')->nullable()->change();
+            $table->string('place')->nullable()->change();        
         });
-
     }
 
     /**

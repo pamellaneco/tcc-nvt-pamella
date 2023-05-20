@@ -33,14 +33,6 @@ class PagesController extends Controller
     }
 
    // public function listProducersProfiles($tipoUsuario)
-    public function listProducersProfiles()
-    {
-
-       // $usuarios = User::where('tipoUsuario', $tipoUsuario);
-        $tipoUsuario = "agricultor";
-        $usuarios = User::where('tipoUsuario', $tipoUsuario);
-        return view ('listProducersProfiles')->with('usuarios', $usuarios->get());
-
-    }
+    
 
 }

@@ -16,14 +16,7 @@ class PagesController extends Controller
 
     public function profile()
     {
-        $tipoUsuario = auth()->user()->tipoUsuario;
-
-        if ($tipoUsuario == 'agricultor') {
-            return view('dashboardProducer');
-        }
-        if ($tipoUsuario == 'consumidor') {
-            return view('dashboardConsumer');
-        }
+        return view('userDashboard');
 
     }
 

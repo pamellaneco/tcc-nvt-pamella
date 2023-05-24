@@ -22,7 +22,7 @@
                     <div class="card-header">Perfil - {{ auth()->user()->tipoUsuario }}</div>
                     
                     <div class="card-body">
-                        <img src="/img/user.png" alt="foto de perfil" width="30%">
+                        <img src="/profile_pictures/{{auth()->user()->profile_picture}}" alt="foto de perfil" width="30%">
                         <h4 class="mt-3">Nome: </h4>
                         {{ auth()->user()->name }}
                         <h4 class="mt-3">Email: </h4> 

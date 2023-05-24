@@ -17,6 +17,7 @@ class PagesController extends Controller
     public function profile()
     {
         return view('userDashboard');
+       // return view ('userDashboard')->with('perfil', $atributos_do_banco);
 
     }
 

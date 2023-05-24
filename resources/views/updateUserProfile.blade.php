@@ -55,6 +55,12 @@
                                         </div>
 
                                         <div class="m-1">
+                                            <label class="mt-2" for="image">{{ __('Escolha uma imagem para seu perfil:') }}</label> <br>
+                                            <label for="image">{{$perfil['profile_picture']}}</label> <br>
+                                            <input id="image" class="mt-2" type="file" name="image"> 
+                                        </div>
+
+                                        <div class="m-1">
                                             <button type="submit" class="mt-2 btn btn-primary">Atualizar</button>
                                         </div>
                                     </form>

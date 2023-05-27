@@ -55,31 +55,41 @@
                         <div class="card-header">{{ __('slug do post ou tag') }}</div>
     
                         <div class="card-body col-md-12">
-                            <div class="card-content" id="card-content">
-                                <div class="col-md-6">
-                                    <h1>{{$post->title}}</h1>
-                                    <h5>Criado por <a href="/postsPage/showProducerProfile"><strong> {{$post->user->name}}</strong></a><strong>, em {{ date('jS M Y', strtotime($post->updated_at)) }} </strong>.</h5>
-                                    <h3>{{$post->description}}</h3>
-                                    <div class="col-md-4 w-50 p-3">
-                                        <img src="/images/{{$post->image_path}}" alt="imagem da oferta"> 
+                            <div class="card-content d-flex flex-direction-row flex-wrap" id="card-content">
+                                <div class="col-md-12 d-flex flex-direction-row flex-wrap">
+                                    <div class="col-md-6 p-1">
+                                        <h1>{{$post->title}}</h1>
+                                        <div>
+                                            <h5>Criado por <a href="/postsPage/showProducerProfile"><strong> {{$post->user->name}}</strong></a><strong>, em {{ date('jS M Y', strtotime($post->updated_at)) }} </strong>.</h5>
+                                            <div class="col-md-4 w-30 p-1 border-radius-6">
+                                                <img src="/profile_pictures/{{auth()->user()->profile_picture}}" alt="foto de perfil" width="30%">
+                                            </div>
+                                        </div>
+                                        
+                                        <h3>{{$post->description}}</h3>
+                                    </div>
+                                    <div class="col-md-6 p-1 d-flex flex-direction-row">
+                                        <img src="/images/{{$post->image_path}}" alt="imagem da oferta" width="50%"> 
+                                        <div>
+                                            @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
+                                                <div>
+                                                    <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
+                                                        {{ __('Editar publicação') }}
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <form action="/postsPage/delete/{{$post->id}}" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="btn btn-danger w-50 p-2 m-3" type="submit">
+                                                            Deletar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
-                            @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
-                                <div>
-                                    <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
-                                        {{ __('Editar publicação') }}
-                                    </a>
-                                </div>
-                                <div>
-                                    <form action="/postsPage/delete/{{$post->id}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger p-2 m-3" type="submit">
-                                            Deletar
-                                        </button>
-                                    </form>
-                                </div>
-                            @endif
                         </div>
                     </div>
                 </div>

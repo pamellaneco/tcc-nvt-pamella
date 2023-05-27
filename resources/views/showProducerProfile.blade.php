@@ -20,7 +20,7 @@
                 <div class= "col-md-12 mt-3 card bg-success text-white text-align-center">
                     <div class="card-header">Perfil de {{ auth()->user()->tipoUsuario }} {{ auth()->user()->name }}</div>
                         <div class="card-body">
-                        <img src="/img/user.png" alt="foto de perfil" width="30%">
+                        <img src="/profile_pictures/{{auth()->user()->profile_picture}}" alt="foto de perfil" width="30%">
                         <h4 class="mt-3">Nome: </h4>
                         {{ auth()->user()->name }}
                         <h4 class="mt-3">Email: </h4> 
@@ -29,9 +29,11 @@
                         {{ auth()->user()->place }}
                         <h4 class="mt-3">Telefone: </h4> 
                         {{ auth()->user()->phone }}
+                        <h4 class="mt-3">Principais produtos oferecidos: </h4> 
+                        {{ auth()->user()->products }}
                     </div>
                     <div>
-                        <a href="/profile/updateUserProfile/{{$usuarios->id}}" type="submit" class="btn btn-warning m-3">
+                        <a href="/profile/updateUserProfile/{{auth()->user()->id}}" type="submit" class="btn btn-warning m-3">
                             {{ __('Editar/adicionar informações ao perfil') }}
                         </a>
                     </div>

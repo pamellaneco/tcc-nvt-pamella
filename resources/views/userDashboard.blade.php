@@ -31,6 +31,8 @@
                         {{ auth()->user()->phone }}
                         <h4 class="mt-3">Localidade: </h4> 
                         {{ auth()->user()->place }}
+                        <h4 class="mt-3">Produtos: </h4> 
+                        {{ auth()->user()->products }}
                     </div>
                     <div>
                         <a href="/profile/updateUserProfile/{{ auth()->user()->id }}" type="submit" class="btn btn-warning m-3">

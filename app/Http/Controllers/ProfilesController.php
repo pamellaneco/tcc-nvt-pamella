@@ -40,7 +40,7 @@ class ProfilesController extends Controller
             $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
             $request->image->move(public_path('profile_pictures'), $newImageName);
         } else {
-            $newImageName = $atributos_do_banco['profile_picture'];
+            $newImageName = $atributos_do_banco['profile_pictures'];
         }
        
         User::where('id', $id)->update([
@@ -48,6 +48,7 @@ class ProfilesController extends Controller
             'email' => $request->input('email'),
             'place' => $request->input('place'),
             'phone' => $request->input('phone'),
+            'products' => $request->input('products'),
             'profile_picture' => $newImageName,
             //'user_id' => auth()->user()->id
         ]);

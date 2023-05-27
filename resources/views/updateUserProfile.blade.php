@@ -55,6 +55,11 @@
                                         </div>
 
                                         <div class="m-1">
+                                            <label class="mt-2 col-md-8 col-form-label text-md-end" for="products">{{ __('Produtos:') }}</label>
+                                            <input class="mt-2 form-control @error('products') is-invalid @enderror" type="text" name="products" value="{{$perfil['products']}}" placeholder="Liste os produtos com os quais você trabalha...">
+                                        </div>
+
+                                        <div class="m-1">
                                             <label class="mt-2" for="image">{{ __('Escolha uma imagem para seu perfil:') }}</label> <br>
                                             <label for="image">{{$perfil['profile_picture']}}</label> <br>
                                             <input id="image" class="mt-2" type="file" name="image"> 

@@ -35,7 +35,11 @@ Route::delete('/postsPage/delete/{id}', [App\Http\Controllers\PostsController::c
 
 Route::get('/postsPage', [App\Http\Controllers\PostsController::class, 'postsPage'])->name('postsPage')->middleware('verified'); 
 
-Route::get('/postsPage/listProducersProfiles/agricultor', [App\Http\Controllers\PagesController::class, 'listProducersProfiles'])->name('listProducersProfiles')->middleware('verified'); 
+Route::get('/postsPage/listProducersProfiles/agricultor', [App\Http\Controllers\ProfilesController::class, 'listProducersProfiles'])->name('listProducersProfiles')->middleware('verified'); 
+
+Route::get('/profile/updateUserProfile/{id}', [App\Http\Controllers\ProfilesController::class, 'showEditForm'])->name('showEditForm')->middleware('verified'); 
+
+Route::post('/profile/update/{id}', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('edit')->middleware('verified'); 
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile')->middleware('verified'); 
 

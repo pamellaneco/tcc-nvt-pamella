@@ -16,14 +16,8 @@ class PagesController extends Controller
 
     public function profile()
     {
-        $tipoUsuario = auth()->user()->tipoUsuario;
-
-        if ($tipoUsuario == 'agricultor') {
-            return view('dashboardProducer');
-        }
-        if ($tipoUsuario == 'consumidor') {
-            return view('dashboardConsumer');
-        }
+        return view('userDashboard');
+       // return view ('userDashboard')->with('perfil', $atributos_do_banco);
 
     }
 
@@ -33,14 +27,6 @@ class PagesController extends Controller
     }
 
    // public function listProducersProfiles($tipoUsuario)
-    public function listProducersProfiles()
-    {
-
-       // $usuarios = User::where('tipoUsuario', $tipoUsuario);
-        $tipoUsuario = "agricultor";
-        $usuarios = User::where('tipoUsuario', $tipoUsuario);
-        return view ('listProducersProfiles')->with('usuarios', $usuarios->get());
-
-    }
+    
 
 }

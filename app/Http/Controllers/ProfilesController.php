@@ -11,16 +11,16 @@ class ProfilesController extends Controller
 {
     public function listProducersProfiles()
     {
-        $tipoUsuario = "agricultor";
-        $usuarios = User::where('tipoUsuario', $tipoUsuario);
-        return view ('listProducersProfiles')->with('usuarios', $usuarios->get());
+        $role = "agricultor";
+        $users = User::where('role', $role);
+        return view ('listProducersProfiles')->with('users', $users->get());
     }
     
     public function showEditForm($id) //aqui é pra levar ao form de edição
     { 
-        $variavel_com_dados_do_banco = User::find($id);
-        $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
-        return view ('updateUserProfile')->with('perfil', $atributos_do_banco);
+        $db_data = User::find($id);
+        $db_attributes = $db_data ->getAttributes();
+        return view ('updateUserProfile')->with('profile', $db_attributes);
     }
 
     public function edit($id, Request $request) //aqui é pra editar

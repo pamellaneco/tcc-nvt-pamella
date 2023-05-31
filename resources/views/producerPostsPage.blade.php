@@ -41,7 +41,7 @@
                 </div>
             @endif
             
-            @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
+            @if (Auth::check() && Auth::user()->role == 'agricultor')
                 <a href="/postsPage/create" type="submit" class="btn btn-warning m-3">
                     {{ __('Criar publicação') }}
                 </a>
@@ -64,7 +64,7 @@
                                         <img src="/images/{{$post->image_path}}" alt="imagem da oferta"> 
                                     </div>
                                 </div>
-                            @if (Auth::check() && Auth::user()->tipoUsuario == 'agricultor')
+                            @if (Auth::check() && Auth::user()->role == 'agricultor')
                                 <div>
                                     <a href="/postsPage/show/{{$post->id}}" type="submit" class="btn btn-warning m-3">
                                         {{ __('Editar publicação') }}

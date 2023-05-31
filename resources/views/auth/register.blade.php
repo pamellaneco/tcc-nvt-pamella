@@ -20,14 +20,14 @@
                             @csrf
 
                             <div class="row md-8 justify-content-center align-items-center text-align-center">
-                                <label for="tipoUsuario" class="col-md-8 col-form-label text-md-center">Informe se você é agricultor ou consumidor:</label> 
+                                <label for="role" class="col-md-8 col-form-label text-md-center">Informe se você é agricultor ou consumidor:</label> 
                                 <div class="row md-8 m-1 text-md-center justify-content-center align-items-center">
                                     <div>
-                                        <input type="radio" name="tipoUsuario" id="agricultor" value="agricultor">
+                                        <input type="radio" name="role" id="agricultor" value="agricultor">
                                         <label for="agricultor">Agricultor</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="tipoUsuario" id="consumidor" value="consumidor">
+                                        <input type="radio" name="role" id="consumidor" value="consumidor">
                                         <label for="consumidor">Consumidor</label>
                                     </div>
                                 </div>

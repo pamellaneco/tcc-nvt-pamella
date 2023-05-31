@@ -18,7 +18,7 @@
         <div id="container" class="row col-md-12 justify-content-center align-content-center text-align-center">
             <div class="row col-md-12">
                 <div class= "col-md-12 mt-3 card bg-success text-white text-align-center">
-                    <div class="card-header">Perfil de {{ auth()->user()->tipoUsuario }} {{ auth()->user()->name }}</div>
+                    <div class="card-header">Perfil de {{ auth()->user()->role }} {{ auth()->user()->name }}</div>
                         <div class="card-body">
                         <img src="/img/user.png" alt="foto de perfil" width="30%">
                         <h4 class="mt-3">Nome: </h4>

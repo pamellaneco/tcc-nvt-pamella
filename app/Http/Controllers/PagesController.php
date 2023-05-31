@@ -16,12 +16,12 @@ class PagesController extends Controller
 
     public function profile()
     {
-        $tipoUsuario = auth()->user()->tipoUsuario;
+        $role = auth()->user()->role;
 
-        if ($tipoUsuario == 'agricultor') {
+        if ($role == 'agricultor') {
             return view('dashboardProducer');
         }
-        if ($tipoUsuario == 'consumidor') {
+        if ($role == 'consumidor') {
             return view('dashboardConsumer');
         }
 
@@ -30,9 +30,6 @@ class PagesController extends Controller
     public function showProducerProfile()
     {
         return view('showProducerProfile');
-    }
-
-   // public function listProducersProfiles($tipoUsuario)
-    
+    }    
 
 }

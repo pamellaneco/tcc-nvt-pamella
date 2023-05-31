@@ -65,6 +65,17 @@
                                             <input id="image" class="mt-2" type="file" name="image"> 
                                         </div>
 
+                                        @if (Auth::check() && Auth::user()->role == 'agricultor') 
+                                        <!-- Quando a branch do tcc-013.1 for aprovada, dará erro aqui porque o campo agora é
+                                            'role' e não 'tipoUsuario'
+                                        -->
+                                        <div class="m-1">
+                                            <label class="mt-2" for="imageSeal">{{ __('Cadastre seu selo de produtor orgânico:') }}</label> <br>
+                                            <label for="imageSeal">{{$perfil['seal']}}</label> <br>
+                                            <input id="imageSeal" class="mt-2" type="file" name="imageSeal"> 
+                                        </div>
+                                        @endif
+
                                         <div class="m-1">
                                             <button type="submit" class="mt-2 btn btn-primary">Atualizar</button>
                                         </div>

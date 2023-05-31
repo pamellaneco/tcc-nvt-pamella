@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 
 use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull; //adicionei por intuição
 
 class ProfilesController extends Controller
 {
@@ -33,14 +34,25 @@ class ProfilesController extends Controller
         $variavel_com_dados_do_banco = User::find($id);
         $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
 
-        if (isEmpty($request->input('image'))) {
+
+        if (!isEmpty($request->input('image'))) {
             $request ->validate([
                 'image' => 'mimes:jpg,png,jpeg|max:5048'
             ]);
             $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
             $request->image->move(public_path('profile_pictures'), $newImageName);
         } else {
-            $newImageName = $atributos_do_banco['profile_pictures'];
+            $newImageName = $atributos_do_banco['profile_picture'];
+        }
+
+        if (!isEmpty($request->input('imageSeal'))) {
+            $request ->validate([
+                'imageSeal' => 'mimes:jpg,png,jpeg|max:5048'
+            ]);
+            $newSealImage = uniqid() . "-" . $request->title . '.' . $request->image->extension();
+            $request->image->move(public_path('seal_pictures'), $newSealImage);
+        } else {
+            $newSealImage = $atributos_do_banco['seal'];
         }
        
         User::where('id', $id)->update([
@@ -50,6 +62,7 @@ class ProfilesController extends Controller
             'phone' => $request->input('phone'),
             'products' => $request->input('products'),
             'profile_picture' => $newImageName,
+            'seal' => $newSealImage,
             //'user_id' => auth()->user()->id
         ]);
 

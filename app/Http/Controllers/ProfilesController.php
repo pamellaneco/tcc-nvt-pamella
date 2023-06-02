@@ -13,7 +13,6 @@ class ProfilesController extends Controller
 {
     public function listProducersProfiles()
     {
-
         $tipoUsuario = "agricultor";
         $usuarios = User::where('tipoUsuario', $tipoUsuario);
         return view ('listProducersProfiles')->with('usuarios', $usuarios->get());
@@ -30,31 +29,29 @@ class ProfilesController extends Controller
 
     public function edit($id, Request $request) //aqui é pra editar
     {
-        
         $variavel_com_dados_do_banco = User::find($id);
         $atributos_do_banco = $variavel_com_dados_do_banco ->getAttributes();
 
-
-        if (!isEmpty($request->input('image'))) {
+        if (isEmpty($request->file('image'))) {
             $request ->validate([
                 'image' => 'mimes:jpg,png,jpeg|max:5048'
             ]);
-            $newImageName = uniqid() . "-" . $request->title . '.' . $request->image->extension();
+            $newImageName = uniqid() . "-" . $request->title . '_profile.' . $request->image->extension();
             $request->image->move(public_path('profile_pictures'), $newImageName);
         } else {
-            $newImageName = $atributos_do_banco['profile_picture'];
+            $newImageName = $atributos_do_banco['profile_pictures'];
         }
 
-        if (!isEmpty($request->input('imageSeal'))) {
+        if (isNull($request->file('imageSeal'))) {
             $request ->validate([
                 'imageSeal' => 'mimes:jpg,png,jpeg|max:5048'
             ]);
-            $newSealImage = uniqid() . "-" . $request->title . '.' . $request->image->extension();
-            $request->image->move(public_path('seal_pictures'), $newSealImage);
+            $newSealImage = uniqid() . "-" . $request->title . '_seal.' . $request->imageSeal->extension();
+            $request->imageSeal->move(public_path('seal_pictures'), $newSealImage);
         } else {
             $newSealImage = $atributos_do_banco['seal'];
         }
-       
+    
         User::where('id', $id)->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
